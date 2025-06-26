@@ -1,5 +1,5 @@
 
-Scenario 1: The bank wants to apply a discount to loan interest rates for customers above 60 years old.
+--Scenario 1: The bank wants to apply a discount to loan interest rates for customers above 60 years old.
 
 SET SERVEROUTPUT ON;
 
