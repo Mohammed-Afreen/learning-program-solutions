@@ -1,4 +1,4 @@
-Scenario 3: Customers should be able to transfer funds between their accounts.
+--Scenario 3: Customers should be able to transfer funds between their accounts.
 
 CREATE OR REPLACE PROCEDURE TransferFunds (
     p_from_account IN NUMBER,
