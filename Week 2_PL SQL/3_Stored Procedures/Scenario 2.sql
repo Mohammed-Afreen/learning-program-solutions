@@ -1,4 +1,4 @@
-Scenario 2: The bank wants to implement a bonus scheme for employees based on their performance.
+--Scenario 2: The bank wants to implement a bonus scheme for employees based on their performance.
 
 CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus (
     p_department IN VARCHAR2,
