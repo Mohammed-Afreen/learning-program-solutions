@@ -1,4 +1,4 @@
-Scenario 1: The bank needs to process monthly interest for all savings accounts.
+--Scenario 1: The bank needs to process monthly interest for all savings accounts.
 
 CREATE OR REPLACE PROCEDURE ProcessMonthlyInterest IS
 BEGIN
