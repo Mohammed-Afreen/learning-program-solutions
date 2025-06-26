@@ -1,4 +1,4 @@
-Scenario 2: A customer can be promoted to VIP status based on their balance.
+--Scenario 2: A customer can be promoted to VIP status based on their balance.
 
 BEGIN
     FOR rec IN (SELECT CustomerID, Balance FROM Customers) LOOP
