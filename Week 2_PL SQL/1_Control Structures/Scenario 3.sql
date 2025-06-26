@@ -1,4 +1,4 @@
-Scenario 3: The bank wants to send reminders to customers whose loans are due within the next 30 days.
+--Scenario 3: The bank wants to send reminders to customers whose loans are due within the next 30 days.
 
 DECLARE
     CURSOR cur2 IS
