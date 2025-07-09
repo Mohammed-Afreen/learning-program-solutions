@@ -3,9 +3,9 @@ package com.cognizant.spring_learn;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-publicclass Country {
+public class Country {
 
-privatestaticfinal Logger LOGGER = LoggerFactory.getLogger(Country.class);
+private static final Logger LOGGER = LoggerFactory.getLogger(Country.class);
 
 private String code;
 private String name;
@@ -19,7 +19,7 @@ LOGGER.info("Getting country code: {}", code);
 return code;
     }
 
-publicvoid setCode(String code) {
+public void setCode(String code) {
 LOGGER.info("Setting country code to: {}", code);
 this.code = code;
     }
@@ -29,7 +29,7 @@ LOGGER.info("Getting country name: {}", name);
 return name;
     }
 
-publicvoid setName(String name) {
+public void setName(String name) {
 LOGGER.info("Setting country name to: {}", name);
 this.name = name;
     }
