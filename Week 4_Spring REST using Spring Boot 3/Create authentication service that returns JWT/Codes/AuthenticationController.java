@@ -48,7 +48,7 @@ public class AuthenticationController {
         return Jwts.builder()
                 .setSubject(user)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 20 * 60 * 1000)) // 20 mins
+                .setExpiration(new Date(System.currentTimeMillis() + 20 * 60 * 1000))
                 .signWith(SignatureAlgorithm.HS256, "secretkey")
                 .compact();
     }
