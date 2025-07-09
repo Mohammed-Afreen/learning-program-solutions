@@ -1,0 +1,29 @@
+Step-by-Step Instructions
+
+1. Go to Spring Initializr
+Open https://start.spring.io/
+
+2. Fill project details
+Group: com.cognizant
+Artifact: spring-learn
+Name: spring-learn (auto-filled)
+
+Dependencies:
+Select Spring Web
+Select Spring Boot DevTools
+
+3. Download and Extract
+Click Generate
+A zip file will download
+Extract the zip file to your Eclipse workspace folder
+
+4. Import to Eclipse
+Go to Eclipse > File > Import
+Select Maven > Existing Maven Projects
+Click Browse, choose the extracted spring-learn folder
+Click Finish
+
+5. Run the Project
+Right-click on SpringLearnApplication.java
+
+Choose Run As > Java Application
