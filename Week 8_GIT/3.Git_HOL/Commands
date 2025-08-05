@@ -1,27 +1,29 @@
 MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
-$ echo "This is a test log file" > test.log
-mkdir log
-echo "This is inside the log folder" > log/logfile.log
+$ git checkout -b GitNewBranch
+Switched to a new branch 'GitNewBranch'
 
-MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
-$ touch .gitignore
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitNewBranch)
+$ git branch -a
+* GitNewBranch
+  main
+  remotes/origin/main
 
-MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
-$ notepad .gitignore
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitNewBranch)
+$ echo "Branch-specific content" > branchfile.txt
 
-MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
-$ git add .gitignore
-git commit -m "Add .gitignore to ignore .log files and log folder"
-[main d24521c] Add .gitignore to ignore .log files and log folder
- 1 file changed, 2 insertions(+)
- create mode 100644 .gitignore
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitNewBranch)
+$ git add branchfile.txt
+warning: in the working copy of 'branchfile.txt', LF will be replaced by CRLF the next time Git touches it
 
-MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitNewBranch)
+$ git commit -m "Added branchfile.txt in GitNewBranch"
+[GitNewBranch 77c2523] Added branchfile.txt in GitNewBranch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 branchfile.txt
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitNewBranch)
 $ git status
-On branch main
-Your branch is ahead of 'origin/main' by 1 commit.
-  (use "git push" to publish your local commits)
-
+On branch GitNewBranch
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
@@ -33,16 +35,83 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitNewBranch)
+$ git restore welcome.txt
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitNewBranch)
+$ git status
+On branch GitNewBranch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        FETCH_HEAD
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitNewBranch)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
 
 MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
-$ git push origin main
-warning: redirecting to https://gitlab.com/mohammed-afreen-group/gitdemo.git/
-Enumerating objects: 4, done.
-Counting objects: 100% (4/4), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 349 bytes | 349.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-To https://gitlab.com/mohammed-afreen-group/gitdemo
-   76fcd28..d24521c  main -> main
+$ git diff GitNewBranch
+diff --git a/branchfile.txt b/branchfile.txt
+deleted file mode 100644
+index 1f187fa..0000000
+--- a/branchfile.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-Branch-specific content
 
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git config --global merge.tool p4merge
+git config --global diff.tool p4merge
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git difftool GitNewBranch
+
+Viewing (1/1): 'branchfile.txt'
+Launch 'p4merge' [Y/n]? y
+The diff tool p4merge is not available as 'p4merge'
+fatal: external diff died, stopping at branchfile.txt
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git merge GitNewBranch
+Updating d24521c..77c2523
+Fast-forward
+ branchfile.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 branchfile.txt
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git log --oneline --graph --decorate
+* 77c2523 (HEAD -> main, GitNewBranch) Added branchfile.txt in GitNewBranch
+* d24521c (origin/main) Add .gitignore to ignore .log files and log folder
+* 76fcd28 Add welcome.txt
+* 36ce560 Initial commit
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git branch -d GitNewBranch
+Deleted branch GitNewBranch (was 77c2523).
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        FETCH_HEAD
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ rm FETCH_HEAD
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
