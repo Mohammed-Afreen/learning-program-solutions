@@ -1,0 +1,48 @@
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ echo "This is a test log file" > test.log
+mkdir log
+echo "This is inside the log folder" > log/logfile.log
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ touch .gitignore
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ notepad .gitignore
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git add .gitignore
+git commit -m "Add .gitignore to ignore .log files and log folder"
+[main d24521c] Add .gitignore to ignore .log files and log folder
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gitignore
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   welcome.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        FETCH_HEAD
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git push origin main
+warning: redirecting to https://gitlab.com/mohammed-afreen-group/gitdemo.git/
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 349 bytes | 349.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://gitlab.com/mohammed-afreen-group/gitdemo
+   76fcd28..d24521c  main -> main
+
