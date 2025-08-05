@@ -1,0 +1,69 @@
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git checkout main
+git status
+Already on 'main'
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+On branch main
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello_BACKUP_2476.xml
+        hello_BASE_2476.xml
+        hello_LOCAL_2476.xml
+        hello_REMOTE_2476.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ echo "hello_*_*.xml" >> .gitignore
+git add .gitignore
+git commit -m "Ignore merge conflict backup files"
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+[main ae342bc] Ignore merge conflict backup files
+ 1 file changed, 1 insertion(+)
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ rm hello_*_*.xml
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git push origin main
+warning: redirecting to https://gitlab.com/mohammed-afreen-group/gitdemo.git/
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (14/14), done.
+Writing objects: 100% (18/18), 1.73 KiB | 442.00 KiB/s, done.
+Total 18 (delta 6), reused 0 (delta 0), pack-reused 0
+To https://gitlab.com/mohammed-afreen-group/gitdemo
+   d24521c..ae342bc  main -> main
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git checkout main
+git status
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git branch -a
+* main
+  remotes/origin/main
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git pull origin main
+warning: redirecting to https://gitlab.com/mohammed-afreen-group/gitdemo.git/
+From https://gitlab.com/mohammed-afreen-group/gitdemo
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git push origin main
+warning: redirecting to https://gitlab.com/mohammed-afreen-group/gitdemo.git/
+Everything up-to-date
+
