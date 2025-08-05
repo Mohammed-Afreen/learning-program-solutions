@@ -1,0 +1,148 @@
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~ (master)
+$ git --version
+git version 2.38.1.windows.1
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~ (master)
+$ git config --global user.name Mohammed-Afreen1
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~ (master)
+$ git config --global user.email afreenmd6466@gmail.com
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~ (master)
+$ git config --global --list
+user.name=Mohammed-Afreen1
+user.email=afreenmd6466@gmail.com
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~ (master)
+$ notepad
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~ (master)
+$ git config --global core.editor "notepad"
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~ (master)
+$ git config --global --edit
+
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~ (master)
+$ mkdir GitDemo
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~ (master)
+$ cd GitDemo
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ git init
+Initialized empty Git repository in C:/Users/MD  BIBI BATOOL/GitDemo/.git/
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ ls -a
+./  ../  .git/
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ echo "Welcome to GitLab hands-on lab." > welcome.txt
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ ls
+cat welcome.txt
+welcome.txt
+Welcome to GitLab hands-on lab.
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        welcome.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ git add welcome.txt
+warning: in the working copy of 'welcome.txt', LF will be replaced by CRLF the next time Git touches it
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ git commit
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/MD  BIBI BATOOL/GitDemo/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/MD  BIBI BATOOL/GitDemo/.git/COMMIT_EDITMSG to Unix format...
+Aborting commit due to empty commit message.
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   welcome.txt
+
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ git remote add origin https://gitlab.com/mohammed-afreen-group/gitdemo
+
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ git pull origin main --allow-unrelated-histories
+warning: redirecting to https://gitlab.com/mohammed-afreen-group/gitdemo.git/
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 2.74 KiB | 311.00 KiB/s, done.
+From https://gitlab.com/mohammed-afreen-group/gitdemo
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
+
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ git branch
+* master
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (master)
+$ git branch -M main
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git branch
+* main
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git push -u origin main
+warning: redirecting to https://gitlab.com/mohammed-afreen-group/gitdemo.git/
+Everything up-to-date
+branch 'main' set up to track 'origin/main'.
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ ls
+README.md  welcome.txt
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   welcome.txt
+
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git commit -m "Add welcome.txt"
+[main 76fcd28] Add welcome.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 welcome.txt
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git push origin main
+warning: redirecting to https://gitlab.com/mohammed-afreen-group/gitdemo.git/
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 321 bytes | 160.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://gitlab.com/mohammed-afreen-group/gitdemo
+   36ce560..76fcd28  main -> main
+
+
