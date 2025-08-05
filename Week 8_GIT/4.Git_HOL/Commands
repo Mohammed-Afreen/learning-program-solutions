@@ -1,0 +1,140 @@
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git checkout main
+git status
+Already on 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git checkout -b GitWork
+echo "<greeting>Hello from branch</greeting>" > hello.xml
+Switched to a new branch 'GitWork'
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitWork)
+$ echo "<message>This is from GitWork branch</message>" >> hello.xml
+git status
+On branch GitWork
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitWork)
+$ git add hello.xml
+git commit -m "Add hello.xml with GitWork content"
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+[GitWork bd9e89f] Add hello.xml with GitWork content
+ 1 file changed, 2 insertions(+)
+ create mode 100644 hello.xml
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitWork)
+$ git status
+On branch GitWork
+nothing to commit, working tree clean
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (GitWork)
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ echo "<greeting>Hello from main branch</greeting>" > hello.xml
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git add hello.xml
+git commit -m "Add hello.xml with main branch content"
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+[main 22b1c16] Add hello.xml with main branch content
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git log --oneline --graph --decorate --all
+* 22b1c16 (HEAD -> main) Add hello.xml with main branch content
+| * bd9e89f (GitWork) Add hello.xml with GitWork content
+|/
+* 77c2523 Added branchfile.txt in GitNewBranch
+* d24521c (origin/main) Add .gitignore to ignore .log files and log folder
+* 76fcd28 Add welcome.txt
+* 36ce560 Initial commit
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git diff GitWork
+diff --git a/hello.xml b/hello.xml
+index a23d7a0..13963bc 100644
+--- a/hello.xml
++++ b/hello.xml
+@@ -1,2 +1 @@
+-<greeting>Hello from branch</greeting>
+-<message>This is from GitWork branch</message>
++<greeting>Hello from main branch</greeting>
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git difftool GitWork
+
+Viewing (1/1): 'hello.xml'
+Launch 'p4merge' [Y/n]? y
+The diff tool p4merge is not available as 'p4merge'
+fatal: external diff died, stopping at hello.xml
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ ^C
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git merge GitWork
+Auto-merging hello.xml
+CONFLICT (add/add): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main|MERGING)
+$ git mergetool
+Merging:
+hello.xml
+
+Normal merge conflict for 'hello.xml':
+  {local}: created file
+  {remote}: created file
+The merge tool p4merge is not available as 'p4merge'
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main|MERGING)
+$ git add hello.xml
+git commit -m "Resolve merge conflict in hello.xml"
+[main f35a0e4] Resolve merge conflict in hello.xml
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ echo "*.BACKUP.*" >> .gitignore
+git add .gitignore
+git commit -m "Ignore P4Merge backup files"
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+[main 94532c2] Ignore P4Merge backup files
+ 1 file changed, 1 insertion(+)
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git branch
+  GitWork
+* main
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git branch -d GitWork
+Deleted branch GitWork (was bd9e89f).
+
+MD  BIBI BATOOL@LAPTOP-VAQGUBAR MINGW64 ~/GitDemo (main)
+$ git log --oneline --graph --decorate
+* 94532c2 (HEAD -> main) Ignore P4Merge backup files
+*   f35a0e4 Resolve merge conflict in hello.xml
+|\
+| * bd9e89f Add hello.xml with GitWork content
+* | 22b1c16 Add hello.xml with main branch content
+|/
+* 77c2523 Added branchfile.txt in GitNewBranch
+* d24521c (origin/main) Add .gitignore to ignore .log files and log folder
+* 76fcd28 Add welcome.txt
+* 36ce560 Initial commit
+
